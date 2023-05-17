@@ -2,9 +2,6 @@
     import Navbar from "../components/Navbar.svelte";
 </script>
 
-<div class="column">
-    <Navbar/>
-</div>
 <div class="hero-body">
     <div class="container has-text-centered">
         <div class="column is-4 is-offset-4">

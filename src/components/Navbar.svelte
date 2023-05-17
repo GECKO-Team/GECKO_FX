@@ -1,7 +1,21 @@
-<nav class="navbar navbar-light" style="background-color: #e3f2fd;" role="navigation" aria-label="main navigation">
+<script>
+
+    import {LoggedIn} from "../services/stores.js";
+
+    let stat;
+    LoggedIn.subscribe(value => {
+        stat = value;
+    });
+
+
+
+</script>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-        <a class="navbar-item" href="/#/main">
-            <img src="./images/OIP.jfif" alt="">
+        <a class="navbar-item" href="./">
+            <img src="/images/pinki%201.png" width="30" height="30">
+            GECKO
         </a>
 
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -14,20 +28,27 @@
     <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
             <a class="navbar-item">
-                <a href="/#/">Home</a>
+                Home
+            </a>
+
+            <a class="navbar-item">
+                Other stuff.
             </a>
 
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link">
-                    More
+                    More other stuff.
                 </a>
 
                 <div class="navbar-dropdown">
                     <a class="navbar-item">
-                        Create an Event
+                        About
                     </a>
                     <a class="navbar-item">
-                        Groups
+                        Jobs
+                    </a>
+                    <a class="navbar-item">
+                        Contact
                     </a>
                     <hr class="navbar-divider">
                     <a class="navbar-item">
@@ -40,12 +61,31 @@
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-                    <button class="button is-link is-outlined">
-                        <a href="/#/signup"><strong>Sign up</strong></a>
-                    </button>
-                    <button class="button is-link is-outlined">
-                        <a href="/#/login">Login</a>
-                    </button>
+                    {#if !stat}
+                        <a class="button is-light" href="/#/login">
+                            Log in
+                        </a>
+                        <a class="button is-light" href="/#/signup">
+                            Sign up
+                        </a>
+
+                    {/if}
+                    {#if stat}
+                        <div id="welcome" class="tag is-light">
+                            <p><i class="fa fa-hand-peace-o" aria-hidden="true"></i> Hallo!</p>
+                        </div>
+
+                        <div>
+                            <a class="navbar-item" href="/#/usersettings">
+                                <i class="fa fa-cog" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div>
+                            <button id="logout" class="button is-light" on:click|once={alert("Logged out")}>
+                                Log Out
+                            </button>
+                        </div>
+                    {/if}
                 </div>
             </div>
         </div>
