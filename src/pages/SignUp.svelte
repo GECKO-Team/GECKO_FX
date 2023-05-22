@@ -1,5 +1,32 @@
 <script>
-    import Navbar from "../components/Navbar.svelte";
+
+    import {getContext} from "svelte";
+    import {push} from "svelte-spa-router";
+
+    const geckoService = getContext("GeckoService");
+
+    let email = "";
+    let password = "";
+    let passwordRepeat = "";
+
+
+    async function signup() {
+
+        // check if password and passwordrepeat are the same
+        if (password !== passwordRepeat) {
+            console.log("passwords are not equal ");
+            return;
+        }
+
+        try {
+            await geckoService.signup(email, email, password);
+            push("/login");
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+
 </script>
 
 
@@ -10,27 +37,24 @@
             <hr class="login-hr">
             <p class="subtitle has-text-grey">Please sign up to proceed.</p>
             <div class="box">
-                <form>
+                <form on:submit|preventDefault={signup}>
                     <div class="field">
                         <div class="control">
-                            <input class="input is-large" type="email" placeholder="Your Email" autofocus="">
+                            <input bind:value={email} class="input is-large" type="email" placeholder="Your Email" autofocus="">
                         </div>
                     </div>
 
                     <div class="field">
                         <div class="control">
-                            <input class="input is-large" type="password" placeholder="Your Password">
+                            <input bind:value={password} class="input is-large" placeholder="Your Password">
                         </div>
                     </div>
 
                     <div class="field">
                         <div class="control">
-                            <input class="input is-large" placeholder="Repeat Password">
+                            <input bind:value={passwordRepeat} class="input is-large" placeholder="Repeat Password">
                         </div>
 
-                        <div class="field">
-
-                        </div>
                         <button class="button is-block is-info is-large is-fullwidth">Sign up <i class="fa fa-sign-in" aria-hidden="true"></i></button>
                     </div>
                 </form>

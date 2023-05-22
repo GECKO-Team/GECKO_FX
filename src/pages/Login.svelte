@@ -1,5 +1,24 @@
 <script>
-    import Navbar from "../components/Navbar.svelte";
+    import {push} from "svelte-spa-router";
+    import {getContext} from "svelte";
+
+    const geckoService = getContext("GeckoService");
+
+    let password = "";
+    let email = "";
+
+    async function login() {
+        // TODO capture username
+        let success = await geckoService.login(email, password)
+        if (success) {
+            await push("/")
+        } else {
+            email = "";
+            password = "";
+        }
+    }
+
+
 </script>
 
 <div class="hero-body">
@@ -9,16 +28,16 @@
             <hr class="login-hr">
             <p class="subtitle has-text-grey">Please login to proceed.</p>
             <div class="box">
-                <form>
+                <form on:submit|preventDefault={login}>
                     <div class="field">
                         <div class="control">
-                            <input class="input is-large" type="email" placeholder="Your Email" autofocus="">
+                            <input bind:value={email} class="input is-large" type="email" placeholder="Your Email" autofocus="">
                         </div>
                     </div>
 
                     <div class="field">
                         <div class="control">
-                            <input class="input is-large" type="password" placeholder="Your Password">
+                            <input bind:value={password} class="input is-large" type="password" placeholder="Your Password">
                         </div>
                     </div>
                     <div class="field">

@@ -7,6 +7,10 @@
         stat = value;
     });
 
+    function logout(){
+        alert("Feature not implemented yet");
+    }
+
 
 
 </script>
@@ -81,7 +85,7 @@
                             </a>
                         </div>
                         <div>
-                            <button id="logout" class="button is-light" on:click|once={alert("Logged out")}>
+                            <button id="logout" class="button is-light" on:click|once={logout}>
                                 Log Out
                             </button>
                         </div>
