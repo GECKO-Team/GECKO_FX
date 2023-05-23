@@ -1,6 +1,9 @@
 <script>
 
     import {LoggedIn} from "../services/stores.js";
+    import {getContext} from "svelte";
+
+    const geckoService = getContext("GeckoService");
 
     let stat;
     LoggedIn.subscribe(value => {
@@ -8,7 +11,7 @@
     });
 
     function logout(){
-        alert("Feature not implemented yet");
+        geckoService.logout();
     }
 
 
