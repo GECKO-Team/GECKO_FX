@@ -75,7 +75,8 @@
                         <a class="button is-light" href="/#/signup">
                             Sign up
                         </a>
-
+                        <a class="button is-light" href="/#/userSettings"> <img src="/images/userSettings.png" alt="gear"/>
+                        </a>
                     {/if}
                     {#if stat}
                         <div id="welcome" class="tag is-light">

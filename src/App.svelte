@@ -2,6 +2,7 @@
   import Main from "./pages/Main.svelte"
   import Login from "./pages/Login.svelte"
   import Signup from "./pages/SignUp.svelte"
+  import UserSettings from "./pages/UserSettings.svelte";
   import Router from "svelte-spa-router";
   import Navbar from "./components/Navbar.svelte";
 
@@ -19,7 +20,8 @@
     "/": Main,
     "/login": Login,
     "/signup": Signup,
-    "/main": Main
+    "/main": Main,
+      "/userSettings": UserSettings,
   }
 </script>
 

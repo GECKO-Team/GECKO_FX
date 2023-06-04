@@ -82,5 +82,12 @@ export class geckoService {
         }
     }
 
+    async changeEmail() {
+        try {
+        } catch (error) {
+
+        }
+    }
+
 }
 export  const GeckoService = new geckoService();
