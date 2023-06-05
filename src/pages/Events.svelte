@@ -4,56 +4,41 @@
     import Sidebar from "../components/Sidebar.svelte";
     import Event from "../components/Event.svelte";
     import AddEvent from "../components/AddEvent.svelte";
+    import {getContext} from "svelte";
+    const geckoService = getContext("GeckoService");
+
 
     // don't know if the function works
-    function getEventsFromDatabase() {
-        let databaseURL = 'something';
-        let endpointURL = databaseURL + '/api/events'; // endpoint URL of the backend
-        const options = {
-            method: 'GET', // Specify the HTTP method
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        };
 
-        fetch(endpointURL, options)
-            .then(response => response.json())
-            .then(data => {
-                // Manipulate the data and display it in your HTML
-                console.log("Received data:");
-                console.log(data);
-            })
-            .catch(error => {
-                console.error('Error fetching data from the database.', error);
-            });
-    }
+    let events = geckoService.getEvents();
 
-    // get events from json:
-    // in the future Events should be taken from the database
-    let events = [
-        {
-            id: 0,
-            city: 'Regensburg',
-            country: 'Germany',
-            description: 'Volleyball players meeting. Come and join us!',
-            group_id: 0,
-            house_nr: 23,
-            street: 'Weiherweg',
-            time: 1685948155,
-            title: 'Volleyball playing'
-        },
-        {
-            id: 1,
-            city: 'Nuremberg',
-            country: 'Germany',
-            description: 'Drinking games and fun for all evening!',
-            group_id: 1,
-            house_nr: 41,
-            street: 'Breitstrasse',
-            time: 1685948345,
-            title: 'Barbeque and beer'
-        }
-    ];
+
+    // // get events from json:
+    // // in the future Events should be taken from the database
+    // let events = [
+    //     {
+    //         id: 0,
+    //         city: 'Regensburg',
+    //         country: 'Germany',
+    //         description: 'Volleyball players meeting. Come and join us!',
+    //         group_id: 0,
+    //         house_nr: 23,
+    //         street: 'Weiherweg',
+    //         time: 1685948155,
+    //         title: 'Volleyball playing'
+    //     },
+    //     {
+    //         id: 1,
+    //         city: 'Nuremberg',
+    //         country: 'Germany',
+    //         description: 'Drinking games and fun for all evening!',
+    //         group_id: 1,
+    //         house_nr: 41,
+    //         street: 'Breitstrasse',
+    //         time: 1685948345,
+    //         title: 'Barbeque and beer'
+    //     }
+    // ];
 
     const addEvent = (e) => {
         // get the parameters

@@ -3,7 +3,6 @@
     const dispatch =  createEventDispatcher();
 
     let event = {
-        id: 0,
         city: '',
         country: '',
         description: '',
@@ -20,9 +19,6 @@
         dispatch("addevent", event);
         // reset the event variables
         event = event = {
-            id: 0,
-            city: '',
-            id: 0,
             city: '',
             country: '',
             description: '',
@@ -96,9 +92,6 @@
 <div id="addEventForm">
     <h2 id="form-title">Create new event</h2>
     <form on:submit={onSubmit} class="grid-3">
-        <label class="form-label" >Event id:</label>
-        <input type="number" placeholder="id" id="event_id" bind:value={event.id}/>
-
         <label class="form-label" >Event details:</label>
         <input type="text" placeholder="title" bind:value={event.title}/>
         <input type="text" placeholder="description" bind:value={event.description}/>
