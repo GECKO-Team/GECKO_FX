@@ -15,7 +15,7 @@
   //setContext("GeckoService", new geckoService("http://localhost:3000"));
 
   // for deployed usage
-  setContext("GeckoService", new geckoService("https://gecko-6r6e687i3-testteamforgecko.vercel.app/"));
+  setContext("GeckoService", new geckoService("https://gecko-wspcu76nf-gecko-oth.vercel.app/"));
 
   let routes = {
     "/": Main,

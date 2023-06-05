@@ -89,37 +89,25 @@ export class geckoService {
     }
 
     async getEvents() {
-//         const apiClient = axios.create({
-//             baseURL: `${this.baseUrl}`,
-//             headers: {
-//                 'Access-Control-Allow-Origin': '*',
-//                 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
-//                 'Access-Control-Allow-Headers': 'Content-Type',
-//             },
-//         });
-//
-// // Make your API request using the configured Axios instance
-//         let result = await apiClient.get('/api/events', {
-//             params: {
-//                 title: 'Test2',
-//             },
-//         })
-//             .then(response => {
-//                 // Handle the response
-//                 console.log(response.data);
-//             })
-//             .catch(error => {
-//                 // Handle the error
-//                 console.error(error);
-//             });
-//
-//         console.log(result);
-
         try {
-            const response = await axios.get(`${this.baseUrl}/api/events?title=Test2`);
-            console.log(response)
+            const response = await axios.get(
+                `${this.baseUrl}/api/events`,
+                {
+                    headers: [
+                        { key: "Access-Control-Allow-Credentials", value: "true" },
+                        { key: "Access-Control-Allow-Origin", value: "*" },
+                        { key: "Access-Control-Allow-Methods", value: "GET,OPTIONS,PATCH,DELETE,POST,PUT" },
+                        { key: "Access-Control-Allow-Headers", value: "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" },
+                    ],
+                    params: {
+                        // example:
+                        // title: 'Test2',
+                    },
+                }
+            );
+            console.log(response.data)
             if (response.data.success) {
-                return true;
+                return response.data;
             }
             return false;
         } catch (error) {
