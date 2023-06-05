@@ -3,6 +3,7 @@
   import Login from "./pages/Login.svelte"
   import Signup from "./pages/SignUp.svelte"
   import UserSettings from "./pages/UserSettings.svelte";
+  import Events from "./pages/Events.svelte"
   import Router from "svelte-spa-router";
   import Navbar from "./components/Navbar.svelte";
 
@@ -11,17 +12,18 @@
 
 
   // for localhost testing
-  setContext("GeckoService", new geckoService("http://localhost:3000"));
+  //setContext("GeckoService", new geckoService("http://localhost:3000"));
 
   // for deployed usage
-  // setContext("GeckoService", new geckoService("https://gecko-q38r00pmn-testteamforgecko.vercel.app/https://gecko-q38r00pmn-testteamforgecko.vercel.app/")
+  setContext("GeckoService", new geckoService("https://gecko-6r6e687i3-testteamforgecko.vercel.app/"));
 
   let routes = {
     "/": Main,
     "/login": Login,
     "/signup": Signup,
     "/main": Main,
-      "/userSettings": UserSettings,
+    "/userSettings": UserSettings,
+    "/events": Events
   }
 </script>
 

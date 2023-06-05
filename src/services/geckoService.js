@@ -85,9 +85,48 @@ export class geckoService {
     async changeEmail() {
         try {
         } catch (error) {
+        }
+    }
 
+    async getEvents() {
+//         const apiClient = axios.create({
+//             baseURL: `${this.baseUrl}`,
+//             headers: {
+//                 'Access-Control-Allow-Origin': '*',
+//                 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
+//                 'Access-Control-Allow-Headers': 'Content-Type',
+//             },
+//         });
+//
+// // Make your API request using the configured Axios instance
+//         let result = await apiClient.get('/api/events', {
+//             params: {
+//                 title: 'Test2',
+//             },
+//         })
+//             .then(response => {
+//                 // Handle the response
+//                 console.log(response.data);
+//             })
+//             .catch(error => {
+//                 // Handle the error
+//                 console.error(error);
+//             });
+//
+//         console.log(result);
+
+        try {
+            const response = await axios.get(`${this.baseUrl}/api/events?title=Test2`);
+            console.log(response)
+            if (response.data.success) {
+                return true;
+            }
+            return false;
+        } catch (error) {
+            return false;
         }
     }
 
 }
-export  const GeckoService = new geckoService();
+
+export const GeckoService = new geckoService();
