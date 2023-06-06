@@ -34,6 +34,20 @@
         });
     };
 
+    const deleteEvent = e => {
+        // delete from database
+        let event_id_to_delete = e.detail;
+        let delete_event_response = geckoService.deleteEvent(event_id_to_delete);
+        delete_event_response.then(result => {
+            // console.log("result of delete_event_response:");
+            // console.log(result);
+
+            // update the view on page
+            events = events.filter(events => events.id !== e.detail);
+        });
+    }
+
+
 </script>
 
 <style>
@@ -78,6 +92,8 @@
                                street={event.street}
                                time={event.time}
                                title={event.title}
+
+                               on:deleteevent={deleteEvent}
                         />
                     {/each}
                 {/if}

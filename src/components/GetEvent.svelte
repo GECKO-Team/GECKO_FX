@@ -1,8 +1,4 @@
 <script>
-    import { createEventDispatcher } from "svelte";
-    const dispatch =  createEventDispatcher();
-    import { navigate } from 'svelte-routing';
-
     export let id;
     export let city;
     export let country;
@@ -16,14 +12,6 @@
     let showDescription = false;
     const toggleShowDescription = () => (showDescription = !showDescription);
 
-    const onDelete = () => dispatch("deleteevent", id);
-
-    function onEdit() {
-        location.href = `#/events/${id}`;
-    }
-    function onDetails() {
-        location.href = `#/events/${id}/details`;
-    }
 </script>
 
 <style>
@@ -39,9 +27,7 @@
     <h1>
         {title}
     </h1>
-    <button class="btn" on:click={onDelete}>Delete event</button>
-    <button class="btn" on:click={onEdit}>Edit event</button>
-    <button class="btn" on:click={onDetails}>Show details about the event</button>
+
     <h2>Event id: {id}</h2>
     <p>Takes places in {city}, {country}, at {street} {house_nr} </p>
     <p>Time: {time}</p>

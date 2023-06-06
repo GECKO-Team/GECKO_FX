@@ -1,9 +1,11 @@
 <script>
-  import Main from "./pages/Main.svelte"
-  import Login from "./pages/Login.svelte"
-  import Signup from "./pages/SignUp.svelte"
+  import Main from "./pages/Main.svelte";
+  import Login from "./pages/Login.svelte";
+  import Signup from "./pages/SignUp.svelte";
   import UserSettings from "./pages/UserSettings.svelte";
-  import Events from "./pages/Events.svelte"
+  import Events from "./pages/Events.svelte";
+  import EditEvent from "./pages/EditEvent.svelte";
+  import GetEvent from "./pages/GetEvent.svelte";
   import Router from "svelte-spa-router";
   import Navbar from "./components/Navbar.svelte";
 
@@ -23,7 +25,9 @@
     "/signup": Signup,
     "/main": Main,
     "/userSettings": UserSettings,
-    "/events": Events
+    "/events": Events,
+    [`/events/:id`]: EditEvent,
+    [`/events/:id/details`]: GetEvent
   }
 </script>
 

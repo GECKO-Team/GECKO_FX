@@ -159,6 +159,105 @@ export class geckoService {
             return false;
         }
     }
+
+
+    async deleteEvent(event_id_to_delete) {
+        try {
+            const response = await axios.delete(
+                `${this.baseUrl}/api/events/${event_id_to_delete}`,
+                {
+                    headers: [
+                        { key: "Access-Control-Allow-Credentials", value: "true" },
+                        { key: "Access-Control-Allow-Origin", value: "*" },
+                        { key: "Access-Control-Allow-Methods", value: "GET,OPTIONS,PATCH,DELETE,POST,PUT" },
+                        { key: "Access-Control-Allow-Headers", value: "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" },
+                    ],
+                }
+            );
+
+            // console.log("response in event_id_to_delete:");
+            // console.log(response);
+
+            if (response.status === 200) { // response - object, eg { status: 200, message: 'OK' }
+                // console.log('Success deleteEvent');
+                return response;
+            }
+
+        } catch (error) {
+            console.log("Error during deleteEvent!");
+            console.error(error);
+            return false;
+        }
+    }
+
+    async getEvent(event_id) {
+        try {
+            const response = await axios.get(
+                `${this.baseUrl}/api/events/${event_id}`,
+                {
+                    headers: [
+                        { key: "Access-Control-Allow-Credentials", value: "true" },
+                        { key: "Access-Control-Allow-Origin", value: "*" },
+                        { key: "Access-Control-Allow-Methods", value: "GET,OPTIONS,PATCH,DELETE,POST,PUT" },
+                        { key: "Access-Control-Allow-Headers", value: "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" },
+                    ],
+                }
+            );
+
+            // console.log("response in getEvent:");
+            // console.log(response);
+
+            if (response.status === 200) { // response - object, eg { status: 200, message: 'OK' }
+                console.log('Success getEvent');
+                return response;
+            }
+
+        } catch (error) {
+            console.log("Error during getEvent!");
+            console.error(error);
+            return false;
+        }
+    }
+
+    async putEvent(eventToEdit) {
+        try {
+            const response = await axios.put(
+                `${this.baseUrl}/api/events/${eventToEdit.id}`,
+                {
+                    group_id: eventToEdit.group_id,
+                    city: eventToEdit.city,
+                    country: eventToEdit.country,
+                    description: eventToEdit.description,
+                    house_nr: eventToEdit.house_nr,
+                    street: eventToEdit.street,
+                    time: eventToEdit.time,
+                    title: eventToEdit.title
+                },
+                {
+                    headers: [
+                        { key: "Access-Control-Allow-Credentials", value: "true" },
+                        { key: "Access-Control-Allow-Origin", value: "*" },
+                        { key: "Access-Control-Allow-Methods", value: "GET,OPTIONS,PATCH,DELETE,POST,PUT" },
+                        { key: "Access-Control-Allow-Headers", value: "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" },
+                    ],
+                }
+            );
+
+            console.log("response in putEvent:");
+            console.log(response);
+
+            if (response.status === 200) { // response - object, eg { status: 200, message: 'OK' }
+                console.log('Success putEvent');
+                return response;
+            }
+
+        } catch (error) {
+            console.log("Error during putEvent!");
+            console.error(error);
+            return false;
+        }
+    }
 }
+
 
 export const GeckoService = new geckoService();
