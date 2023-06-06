@@ -90,8 +90,9 @@ export class geckoService {
 
     async getEvents() {
         try {
+            // console.log(`${this.baseUrl}api/events`);
             const response = await axios.get(
-                `${this.baseUrl}/api/events`,
+                `${this.baseUrl}api/events`,
                 {
                     headers: [
                         { key: "Access-Control-Allow-Credentials", value: "true" },
@@ -105,12 +106,17 @@ export class geckoService {
                     },
                 }
             );
-            console.log(response.data)
-            if (response.data.success) {
+
+            if (response.status === 200) { // response - object, eg { status: 200, message: 'OK' }
+                console.log('Success getEvents');
+                // console.log(response.data);
                 return response.data;
+                // return response.data;
             }
-            return false;
+
         } catch (error) {
+            console.log("Error during getEvents!");
+            console.error(error);
             return false;
         }
     }

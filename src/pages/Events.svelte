@@ -1,48 +1,28 @@
 <script>
 
-    import Navbar from "../components/Navbar.svelte";
     import Sidebar from "../components/Sidebar.svelte";
     import Event from "../components/Event.svelte";
     import AddEvent from "../components/AddEvent.svelte";
     import {getContext} from "svelte";
+
     const geckoService = getContext("GeckoService");
 
+    // initialize the array to store events on the page
+    let events = [];
 
-    // don't know if the function works
+    // get events
+    let get_events_response = geckoService.getEvents();
+    get_events_response.then(result => {
+        result.forEach(item => {
+            events = [...events, item];
+        });
+    });
 
-    let events = geckoService.getEvents();
-
-
-    // // get events from json:
-    // // in the future Events should be taken from the database
-    // let events = [
-    //     {
-    //         id: 0,
-    //         city: 'Regensburg',
-    //         country: 'Germany',
-    //         description: 'Volleyball players meeting. Come and join us!',
-    //         group_id: 0,
-    //         house_nr: 23,
-    //         street: 'Weiherweg',
-    //         time: 1685948155,
-    //         title: 'Volleyball playing'
-    //     },
-    //     {
-    //         id: 1,
-    //         city: 'Nuremberg',
-    //         country: 'Germany',
-    //         description: 'Drinking games and fun for all evening!',
-    //         group_id: 1,
-    //         house_nr: 41,
-    //         street: 'Breitstrasse',
-    //         time: 1685948345,
-    //         title: 'Barbeque and beer'
-    //     }
-    // ];
-
+    // adding new event
     const addEvent = (e) => {
         // get the parameters
         const newEvent = e.detail;
+        console.log(newEvent);
         events = [...events, newEvent];
     };
 

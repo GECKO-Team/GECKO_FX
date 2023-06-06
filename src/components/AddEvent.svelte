@@ -106,7 +106,7 @@
         <input type="number" placeholder="house_nr" bind:value={event.house_nr}/>
 
         <label class="" >Time:</label>
-        <input type="number" placeholder="time" bind:value={event.time}/>
+        <input type="text" placeholder="time" bind:value={event.time}/>
 
         <input type="submit" class="btn" value="Add Event">
     </form>
