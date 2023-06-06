@@ -8,19 +8,27 @@
     let email = "";
     let password = "";
     let passwordRepeat = "";
+    let username = "";
+    $: errorMessage = "";
 
 
     async function signup() {
 
         // check if password and passwordrepeat are the same
         if (password !== passwordRepeat) {
-            console.log("passwords are not equal ");
+            console.log("Passwords are not equal ");
             return;
         }
 
         try {
-            await geckoService.signup(email, email, password);
-            push("/login");
+            let res = await geckoService.signup(username, email, password);
+            console.log(res);
+            if (res.status === "success") {
+                push("/login");
+            } else {
+                errorMessage = res.message;
+            }
+            // push("/login");
         } catch (e) {
             console.log(e);
         }
@@ -45,6 +53,12 @@
 
                     <div class="field">
                         <div class="control">
+                            <input bind:value={username} class="input is-large" type="text" placeholder="Your Username" autofocus="">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="control">
                             <input bind:value={password} class="input is-large" placeholder="Your Password">
                         </div>
                     </div>
@@ -62,5 +76,11 @@
                 <a href="/#/login">Login</a>
             </p>
         </div>
+        <!-- place for errormessages -->
+        {#if errorMessage !== ""}
+        <div class="card">
+                    <p class="has-text-danger">{errorMessage}</p>
+        </div>
+        {/if}
     </div>
 </div>

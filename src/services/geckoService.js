@@ -53,13 +53,14 @@ export class geckoService {
                 password: password,
             };
             console.log(email)
-            // check if the email ends with @st.oth-regensburg.de or @oth-regensburg.de
-            if (email.endsWith("@st.oth-regensburg.de") || email.endsWith("@oth-regensburg.de")) {
+            // check if the email includes with @st.oth-regensburg.de or @oth-regensburg.de
+            if (email.includes("@st.oth-regensburg.de") || email.includes("@oth-regensburg.de")) {
                 let newuser = await axios.post(`${this.baseUrl  }/api/addUser`, userDetails);
                 // console.log("User created!");
                 res = { status : "success", message : "User created!"};
             }
             else {
+
                 res = { status : "error", message : "Email is not valid!"};
                 return res;
             }
