@@ -1,11 +1,10 @@
 
     <aside class="menu">
         <p class="menu-label">
-            General
+            Events
         </p>
         <ul class="menu-list">
-            <li><a>Dashboard</a></li>
-            <li><a>Customers</a></li>
+            <li><a href="#/events">All events</a></li>
         </ul>
         <p class="menu-label">
             Administration

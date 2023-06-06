@@ -3,9 +3,10 @@
   import Login from "./pages/Login.svelte";
   import Signup from "./pages/SignUp.svelte";
   import UserSettings from "./pages/UserSettings.svelte";
-  import Events from "./pages/Events.svelte";
-  import EditEvent from "./pages/EditEvent.svelte";
-  import GetEvent from "./pages/GetEvent.svelte";
+  import AllEvents from "./pages/events/AllEvents.svelte";
+  import EditEvent from "./pages/events/EditEvent.svelte";
+  import CreateEvent from "./pages/events/CreateEvent.svelte";
+  import EventDetails from "./pages/events/EventDetails.svelte";
   import Router from "svelte-spa-router";
   import Navbar from "./components/Navbar.svelte";
 
@@ -25,9 +26,10 @@
     "/signup": Signup,
     "/main": Main,
     "/userSettings": UserSettings,
-    "/events": Events,
+    "/events": AllEvents,
+    "/events/create": CreateEvent,
     [`/events/:id`]: EditEvent,
-    [`/events/:id/details`]: GetEvent
+    [`/events/:id/details`]: EventDetails
   }
 </script>
 

@@ -12,18 +12,18 @@
     let showDescription = false;
     const toggleShowDescription = () => (showDescription = !showDescription);
 
+    function onEdit() {
+        location.href = `#/events/${id}`;
+    }
 </script>
 
 <style>
-    .event-card{
-        border-radius: 20px;
-        background-color: #bae1ee;
-        margin: 1em;
-        padding: 1em;
-    }
+
 </style>
 
-<div class="card event-card">
+<div class="card event-card event-details-card">
+    <button class="btn" on:click={onEdit}>Edit event</button>
+
     <h1>
         {title}
     </h1>
@@ -33,7 +33,7 @@
     <p>Time: {time}</p>
     <p>group_id: {group_id}</p>
 
-    <button on:click={toggleShowDescription}>
+    <button class="btn" on:click={toggleShowDescription}>
         {#if showDescription}Hide description{:else}Show description{/if}
     </button>
     {#if showDescription}

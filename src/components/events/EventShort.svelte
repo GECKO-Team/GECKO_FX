@@ -16,41 +16,23 @@
     let showDescription = false;
     const toggleShowDescription = () => (showDescription = !showDescription);
 
-    const onDelete = () => dispatch("deleteevent", id);
 
-    function onEdit() {
-        location.href = `#/events/${id}`;
-    }
     function onDetails() {
         location.href = `#/events/${id}/details`;
     }
 </script>
 
 <style>
-    .event-card{
-        border-radius: 20px;
-        background-color: #bae1ee;
-        margin: 1em;
-        padding: 1em;
-    }
+
 </style>
 
 <div class="card event-card">
     <h1>
         {title}
     </h1>
-    <button class="btn" on:click={onDelete}>Delete event</button>
-    <button class="btn" on:click={onEdit}>Edit event</button>
     <button class="btn" on:click={onDetails}>Show details about the event</button>
-    <h2>Event id: {id}</h2>
+    <p></p>
+    <h4>Event id: {id}</h4>
     <p>Takes places in {city}, {country}, at {street} {house_nr} </p>
     <p>Time: {time}</p>
-    <p>group_id: {group_id}</p>
-
-    <button on:click={toggleShowDescription}>
-        {#if showDescription}Hide description{:else}Show description{/if}
-    </button>
-    {#if showDescription}
-        <p>description: {description}</p>
-    {/if}
 </div>
