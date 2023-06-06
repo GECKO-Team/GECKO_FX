@@ -92,7 +92,7 @@ export class geckoService {
         try {
             // console.log(`${this.baseUrl}api/events`);
             const response = await axios.get(
-                `${this.baseUrl}api/events`,
+                `${this.baseUrl}/api/events`,
                 {
                     headers: [
                         { key: "Access-Control-Allow-Credentials", value: "true" },
@@ -108,7 +108,7 @@ export class geckoService {
             );
 
             if (response.status === 200) { // response - object, eg { status: 200, message: 'OK' }
-                console.log('Success getEvents');
+                // console.log('Success getEvents');
                 // console.log(response.data);
                 return response.data;
                 // return response.data;
@@ -121,6 +121,44 @@ export class geckoService {
         }
     }
 
+    async postEvent(event_to_create) {
+        try {
+            const response = await axios.post(
+                `${this.baseUrl}/api/events`,
+                {
+                    group_id: event_to_create.group_id,
+                    city: event_to_create.city,
+                    country: event_to_create.country,
+                    description: event_to_create.description,
+                    house_nr: event_to_create.house_nr,
+                    street: event_to_create.street,
+                    time: event_to_create.time,
+                    title: event_to_create.title
+                },
+                {
+                    headers: [
+                        { key: "Access-Control-Allow-Credentials", value: "true" },
+                        { key: "Access-Control-Allow-Origin", value: "*" },
+                        { key: "Access-Control-Allow-Methods", value: "GET,OPTIONS,PATCH,DELETE,POST,PUT" },
+                        { key: "Access-Control-Allow-Headers", value: "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" },
+                    ],
+                }
+            );
+
+            console.log("response in postEvent:");
+            console.log(response);
+
+            if (response.status === 200) { // response - object, eg { status: 200, message: 'OK' }
+                console.log('Success postEvent');
+                return response;
+            }
+
+        } catch (error) {
+            console.log("Error during postEvent!");
+            console.error(error);
+            return false;
+        }
+    }
 }
 
 export const GeckoService = new geckoService();

@@ -20,10 +20,18 @@
 
     // adding new event
     const addEvent = (e) => {
-        // get the parameters
-        const newEvent = e.detail;
-        console.log(newEvent);
-        events = [...events, newEvent];
+        // get the parameters from form
+        const eventToCreate = e.detail;
+        // save the event
+        let post_event_response = geckoService.postEvent(eventToCreate);
+        post_event_response.then(result => {
+            // console.log("result of post_event_response:");
+            // console.log(result);
+
+            // display the new event on the page without reloading it
+            let newEvent = result.data;
+            events = [...events, newEvent];
+        });
     };
 
 </script>

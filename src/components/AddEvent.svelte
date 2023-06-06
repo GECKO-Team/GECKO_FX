@@ -7,9 +7,9 @@
         country: '',
         description: '',
         group_id: 0,
-        house_nr: 0,
+        house_nr: '',
         street: '',
-        time: 0,
+        time: '',
         title: ''
 
     }
@@ -18,14 +18,14 @@
         e.preventDefault();
         dispatch("addevent", event);
         // reset the event variables
-        event = event = {
+        event = {
             city: '',
             country: '',
             description: '',
             group_id: 0,
-            house_nr: 0,
+            house_nr: '',
             street: '',
-            time: 0,
+            time: '',
             title: ''
         };
     };
@@ -103,7 +103,9 @@
         <input type="text" placeholder="country" bind:value={event.country}/>
         <input type="text" placeholder="street" bind:value={event.street}/>
         <label class="" >House number:</label>
-        <input type="number" placeholder="house_nr" bind:value={event.house_nr}/>
+
+<!--       TODO: house number should be probably a number not a string-->
+        <input type="text" placeholder="house_nr" bind:value={event.house_nr}/>
 
         <label class="" >Time:</label>
         <input type="text" placeholder="time" bind:value={event.time}/>
