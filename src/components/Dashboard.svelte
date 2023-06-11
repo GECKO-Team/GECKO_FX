@@ -42,7 +42,7 @@
     {#each events as event}
         <div class="card">
             <div class="card-content">
-                <div class="content">
+                <div class="main-content">
                     <h2><a href="#/events/{event.id}/details"> {event.title}</a> </h2>
                     <p>{event.description}</p>
 

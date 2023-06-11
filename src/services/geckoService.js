@@ -28,6 +28,7 @@ export class geckoService {
                 UserName.set(response.data.username);
                 localStorage.Gecko = JSON.stringify({username: response.data.username,token:response.data.token});
                 return true;
+
             }
             return false;
         } catch (error) {
@@ -57,7 +58,7 @@ export class geckoService {
             if (email.includes("@st.oth-regensburg.de") || email.includes("@oth-regensburg.de")) {
                 let newuser = await axios.post(`${this.baseUrl  }/api/addUser`, userDetails);
                 // console.log("User created!");
-                res = { status : "success", message : "User created!"};
+                return { status : "success", message : "User created!"};
             }
             else {
 
