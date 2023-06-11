@@ -59,13 +59,13 @@
 
                     <div class="field">
                         <div class="control">
-                            <input bind:value={password} class="input is-large" placeholder="Your Password">
+                            <input bind:value={password} type="password" class="input is-large" placeholder="Your Password">
                         </div>
                     </div>
 
                     <div class="field">
                         <div class="control">
-                            <input bind:value={passwordRepeat} class="input is-large" placeholder="Repeat Password">
+                            <input bind:value={passwordRepeat} type="password" class="input is-large" placeholder="Repeat Password">
                         </div>
 
                         <button class="button is-block is-info is-large is-fullwidth">Sign up <i class="fa fa-sign-in" aria-hidden="true"></i></button>
