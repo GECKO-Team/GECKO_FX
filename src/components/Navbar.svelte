@@ -39,7 +39,7 @@
             </a>
 
             <a class="navbar-item">
-                <a href="https://github.com/orgs/GECKO-Team/repositories" target="_blank">
+                <a href="https://github.com/orgs/GECKO-Team/repositories" class="navbar-item" target="_blank">
                     Contribute to this project.
                     </a>
             </a>
