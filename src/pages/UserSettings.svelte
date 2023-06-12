@@ -43,7 +43,9 @@
 </script>
 
 
-<h2 class="title is-2">Edit user profile</h2>
+<h2 id="maintitle" class="title is-2">Edit user profile</h2>
+
+<p id="warning"> This module is currently not of function. Will appear soon. </p>
 <div class = "box">
     <div class="field">
         <label class="label">Change Username</label>
@@ -88,3 +90,18 @@
     </div>
 </div>
 </div>
+
+<style>
+
+    #maintitle {
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
+    #warning {
+        color: red;
+        margin-left: 20px;
+
+    }
+
+</style>

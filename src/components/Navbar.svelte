@@ -39,9 +39,12 @@
             </a>
 
             <a class="navbar-item">
-                Other stuff.
+                <a href="https://github.com/orgs/GECKO-Team/repositories" target="_blank">
+                    Contribute to this project.
+                    </a>
             </a>
 
+            <!--
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link">
                     More other stuff.
@@ -63,6 +66,7 @@
                     </a>
                 </div>
             </div>
+            -->
         </div>
 
         <div class="navbar-end">
@@ -74,8 +78,6 @@
                         </a>
                         <a class="button is-light" href="/#/signup">
                             Sign up
-                        </a>
-                        <a class="button is-light" href="/#/userSettings"> <img src="/images/userSettings.png" alt="gear"/>
                         </a>
                     {/if}
                     {#if stat}

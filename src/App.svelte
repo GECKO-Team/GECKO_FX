@@ -16,7 +16,7 @@
 
 
   // for localhost testing
-  //setContext("GeckoService", new geckoService("http://localhost:3000"));
+  // setContext("GeckoService", new geckoService("http://localhost:3000"));
 
   // for deployed usage
   setContext("GeckoService", new geckoService("https://gecko-bx-tau.vercel.app"));

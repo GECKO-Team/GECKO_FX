@@ -10,18 +10,16 @@
     let events = [];
 
     // adding new event
-    const addEvent = (e) => {
+    const addEvent = async (e) => {
         // get the parameters from form
         const eventToCreate = e.detail;
         // save the event
-        let post_event_response = geckoService.postEvent(eventToCreate);
-        post_event_response.then(result => {
-            // console.log("result of post_event_response:");
-            // console.log(result);
-
-            // redirect to events website
-            location.href = `#/events`;
-        });
+        let post_event_response = await geckoService.postEvent(eventToCreate);
+        // if the event was saved successfully
+        if (post_event_response.status === 200) {
+            // add the event to the array
+            events.push(eventToCreate);
+        }
     };
 
 

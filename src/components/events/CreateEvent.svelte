@@ -6,7 +6,7 @@
         city: '',
         country: '',
         description: '',
-        group_id: 0,
+        group_id: 1,
         house_nr: '',
         street: '',
         time: '',
@@ -16,18 +16,23 @@
 
     const onSubmit = (e) => {
         e.preventDefault();
+        event.id = Math.floor(Math.random() * 10000000) + 10;
         dispatch("addevent", event);
         // reset the event variables
+
         event = {
             city: '',
             country: '',
             description: '',
-            group_id: 0,
+            group_id: 1,
             house_nr: '',
             street: '',
             time: '',
             title: ''
         };
+
+
+
     };
 
 </script>
@@ -42,9 +47,6 @@
         <label class="form-label" >Event details:</label>
         <input type="text" placeholder="title" bind:value={event.title}/>
         <input type="text" placeholder="description" bind:value={event.description}/>
-        <label class="" >Group id:</label>
-        <input type="number" placeholder="group_id" bind:value={event.group_id}/>
-
         <label class="form-label" >Event location and time:</label>
         <input type="text" placeholder="city" bind:value={event.city}/>
         <input type="text" placeholder="country" bind:value={event.country}/>

@@ -16,6 +16,9 @@
     let showDescription = false;
     const toggleShowDescription = () => (showDescription = !showDescription);
 
+    // change time formatting from 2021-05-20T18:00:00.000Z to 20.05.2021 20:00:00 on mount
+    $: time = new Date(time).toLocaleString();
+
 
     function onDetails() {
         location.href = `#/events/${id}/details`;
@@ -32,7 +35,7 @@
     </h1>
     <button class="btn" on:click={onDetails}>Show details about the event</button>
     <p></p>
-    <h4>Event id: {id}</h4>
+    <!-- <h4>Event id: {id}</h4> -->
     <p>Takes places in {city}, {country}, at {street} {house_nr} </p>
     <p>Time: {time}</p>
 </div>

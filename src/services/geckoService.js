@@ -125,6 +125,7 @@ export class geckoService {
 
     async postEvent(event_to_create) {
         try {
+            console.log("event_to_create:");
             const response = await axios.post(
                 `${this.baseUrl}/api/events`,
                 {

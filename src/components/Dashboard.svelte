@@ -1,10 +1,10 @@
 <script>
     // This file will display all events found
     import {getContext, onMount} from "svelte";
-    import * as events from "events";
 
     const geckoService = getContext("GeckoService");
 
+    // WARNING: SOME IDE'S may throw an error with $: in Svelte. Ignore - this function is tested and valid.
     $: events = [];
 
     // on Mount get all events
@@ -14,13 +14,13 @@
     });
 
     // eliminate all events in list, that have already happened
-    /*
+
     $: events = events.filter(event => {
         let eventTime = new Date(event.time);
         let currentTime = new Date();
         return eventTime > currentTime;
     });
-    */
+
 
     // reformat time to be more readable
     $: events = events.map(event => {
