@@ -20,7 +20,7 @@
 
 <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-        <a class="navbar-item" href="./">
+        <a class="navbar-item" href="./#/">
             <img src="/images/pinki%201.png" width="30" height="30">
             GECKO
         </a>
@@ -39,9 +39,12 @@
             </a>
 
             <a class="navbar-item">
-                Other stuff.
+                <a href="https://github.com/orgs/GECKO-Team/repositories" target="_blank">
+                    Contribute to this project.
+                    </a>
             </a>
 
+            <!--
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link">
                     More other stuff.
@@ -63,6 +66,7 @@
                     </a>
                 </div>
             </div>
+            -->
         </div>
 
         <div class="navbar-end">
@@ -75,7 +79,6 @@
                         <a class="button is-light" href="/#/signup">
                             Sign up
                         </a>
-
                     {/if}
                     {#if stat}
                         <div id="welcome" class="tag is-light">
