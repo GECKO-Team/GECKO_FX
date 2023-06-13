@@ -1,35 +1,48 @@
 <script>
     import { createEventDispatcher } from "svelte";
     const dispatch =  createEventDispatcher();
+    import {UserName} from "../../services/stores.js";
 
     let event = {
         city: '',
-        country: '',
+        country: 'Germany',
         description: '',
         group_id: 1,
         house_nr: '',
         street: '',
         time: '',
-        title: ''
+        title: '',
+        creator: ''
 
     }
+
+    let username = "";
+    UserName.subscribe(value => {
+        username = value;
+        alert(username)
+    });
 
     const onSubmit = (e) => {
         e.preventDefault();
         event.id = Math.floor(Math.random() * 10000000) + 10;
+        event.creator = username;
         dispatch("addevent", event);
         // reset the event variables
 
+        /*
         event = {
             city: '',
-            country: '',
+            country: 'Germany',
             description: '',
             group_id: 1,
             house_nr: '',
             street: '',
             time: '',
-            title: ''
+            title: '',
+            creator: ''
         };
+
+         */
 
 
 
