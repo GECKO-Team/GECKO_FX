@@ -1,6 +1,6 @@
 <script>
 
-    import {LoggedIn} from "../services/stores.js";
+    import {LoggedIn, UserName} from "../services/stores.js";
     import {getContext} from "svelte";
 
     const geckoService = getContext("GeckoService");
@@ -8,6 +8,11 @@
     let stat;
     LoggedIn.subscribe(value => {
         stat = value;
+    });
+
+    let username = "";
+    UserName.subscribe(value => {
+        username = value;
     });
 
     function logout(){
@@ -82,7 +87,7 @@
                     {/if}
                     {#if stat}
                         <div id="welcome" class="tag is-light">
-                            <p><i class="fa fa-hand-peace-o" aria-hidden="true"></i> Hallo!</p>
+                            <p><i class="fa fa-hand-peace-o" aria-hidden="true"></i> Hallo {username}</p>
                         </div>
 
                         <div>
