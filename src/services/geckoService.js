@@ -125,7 +125,7 @@ export class geckoService {
 
     async postEvent(event_to_create) {
         try {
-            console.log("event_to_create:");
+            console.log(event_to_create);
             const response = await axios.post(
                 `${this.baseUrl}/api/events`,
                 {
@@ -136,7 +136,8 @@ export class geckoService {
                     house_nr: event_to_create.house_nr,
                     street: event_to_create.street,
                     time: event_to_create.time,
-                    title: event_to_create.title
+                    title: event_to_create.title,
+                    creator: event_to_create.creator
                 },
                 {
                     headers: [
