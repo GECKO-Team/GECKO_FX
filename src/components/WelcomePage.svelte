@@ -3,7 +3,7 @@
 </script>
 
 <div id="pageContent">
-    <img class="bg" src="/images/welcomePageBackgroundImageLight.jpg" alt="gecko">
+    <img class="bg" src="/images/epic_background.png" alt="gecko">
 
     <div id="welcomePageContainer" class="card">
         <div>
@@ -46,24 +46,19 @@
 
 <style>
 
-    #GECKO {
-        color: #45bbbd;
-    }
     #pageContent{
         /*display: flex;*/
         align-items: center;
     }
 
     #welcomePageContainer {
+        background-color: transparent;
         align-items: center;
         width: 70%;
-        color: #69bbbd;
         padding: 1em;
         align-content: center;
         margin: 2em auto;
-        background-color: rgba(31, 36, 128, 0.94);
-        box-shadow: 0 0 30px 30px #151248;
-        border-radius: 20px;
+        color: white;
     }
 
     .card {
@@ -78,14 +73,12 @@
         font-size: 3em;
         font-weight: bold;
         text-align: center;
-        color: #60c5c7;
     }
     .header   {
         margin-bottom: 20px;
         font-size: 2em;
         font-weight: bold;
         text-align: center;
-        color: #60c5c7;
     }
 
 /*    background images styling - begin */
@@ -121,13 +114,12 @@
     #signUpLink {
         text-decoration: none;
         font-weight: 500;
-        color: #60c5c7;
+        color: #ffffff;
         padding: 2em;
         border-radius: 1em;
 
     }
     #signUpLink:hover {
-        color: #22dfee;
         font-weight: 700;
     }
 
@@ -151,15 +143,12 @@
 
     /*styles for phones*/
     @media (max-width: 768px) {
-
-
         #WhoAreWeParagraph, #geckoLogo {
             width: 100%;
         }
 
         #welcomePageContainer {
             width: 80%;
-            color: #69bbbd;
             padding: 1em;
             margin: 2em auto;
             box-shadow: 0 0 30px 20px #151248;
@@ -185,11 +174,6 @@
             width: 70%;
             height: auto;
         }
-
-
-
     }
-
-
 
 </style>
