@@ -19,7 +19,7 @@
     let username = "";
     UserName.subscribe(value => {
         username = value;
-        alert(username)
+        // alert(username)
     });
 
     const onSubmit = (e) => {
