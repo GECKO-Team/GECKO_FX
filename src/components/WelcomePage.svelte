@@ -8,14 +8,7 @@
     <div id="welcomePageContainer" class="card">
         <div>
             <p class="mainHeader">Welcome to <span id="GECKO">GECKO</span>!</p>
-
-             <h3 class="header">Who are we?</h3>
-                <div id="WhoAreWe">
-                    <p class="paragraph" id="WhoAreWeParagraph">
-                        Gecko is a small team all about creating agile and blazingly fast software in a SCRUM framed environment.
-                    </p>
-                    <img id="geckoLogo" src="/images/pinki%201.png" alt="gecko">
-                </div>
+            <br>
 
             <h3 class="header">What is Gecko?</h3>
             <p class="paragraph">
@@ -29,23 +22,36 @@
                 </span>
             </p>
 
+            <h3 class="header">Check out the upcoming events!</h3>
+            <form action="#/dashboard">
+                <input type="submit" class="buttonWithLink" value="See the dashboard!" />
+            </form>
+            <br>
+
+            <h3 class="header">Who are we?</h3>
+            <div id="WhoAreWe">
+                <p class="paragraph" id="WhoAreWeParagraph">
+                    Gecko is a small team all about creating agile and blazingly fast software in a SCRUM framed environment.
+                </p>
+                <img id="geckoLogo" src="/images/pinki%201.png" alt="gecko">
+            </div>
+
             <h3 class="header">Our vision</h3>
             <p class="paragraph">
                 Meeting new people #LikeAGecko
             </p>
 
             <h3 class="header">Create your account now!</h3>
-            <p class="paragraph">
-                <a href="#/signup" id="signUpLink">Register here!</a>
-            </p>
+            <form action="#/signup">
+                <input type="submit" class="buttonWithLink" value="Register here!"/>
+            </form>
+            <br>
 
         </div>
     </div>
 </div>
 
-
 <style>
-
     #pageContent{
         /*display: flex;*/
         align-items: center;
@@ -110,17 +116,15 @@
         padding-bottom: 1em;
     }
 
-
-    #signUpLink {
+    .buttonWithLink {
         text-decoration: none;
         font-weight: 500;
+        font-size: larger;
         color: #ffffff;
-        padding: 2em;
+        background-color: #377eea;
+        padding: 0.5em;
         border-radius: 1em;
-
-    }
-    #signUpLink:hover {
-        font-weight: 700;
+        width: auto;
     }
 
     #WhoAreWe {
@@ -175,5 +179,4 @@
             height: auto;
         }
     }
-
 </style>

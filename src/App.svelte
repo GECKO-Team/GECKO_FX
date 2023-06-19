@@ -2,6 +2,7 @@
   import Main from "./pages/Main.svelte";
   import Login from "./pages/Login.svelte";
   import Signup from "./pages/SignUp.svelte";
+  import Dashboard from "./pages/Dashboard.svelte";
   import UserSettings from "./pages/UserSettings.svelte";
   import AllEvents from "./pages/events/AllEvents.svelte";
   import EditEvent from "./pages/events/EditEvent.svelte";
@@ -25,7 +26,7 @@
     "/": Main,
     "/login": Login,
     "/signup": Signup,
-    "/main": Main,
+    "/dashboard": Dashboard,
     "/userSettings": UserSettings,
     "/events": AllEvents,
     "/events/create": CreateEvent,
