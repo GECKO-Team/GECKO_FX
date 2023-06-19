@@ -11,6 +11,7 @@
   import Router from "svelte-spa-router";
   import Navbar from "./components/Navbar.svelte";
   import CreateGroup from "./pages/groups/CreateGroup.svelte";
+  import Group_Events from "./pages/Group_Events.svelte";
 
   import { setContext } from 'svelte';
   import {geckoService} from "./services/geckoService.js";
@@ -32,7 +33,8 @@
     "/events/create": CreateEvent,
     [`/events/:id`]: EditEvent,
     [`/events/:id/details`]: EventDetails,
-      "/createGroup": CreateGroup
+      "/createGroup": CreateGroup,
+      "/group/:id": Group_Events
   }
 </script>
 

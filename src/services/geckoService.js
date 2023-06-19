@@ -261,6 +261,18 @@ export class geckoService {
             return false;
         }
     }
+
+    async getAllGroups() {
+        try {
+            // ping /api/groups and get all groups
+            let response = await axios.get(`${this.baseUrl}/api/groups`);
+            console.log(response)
+            return response.data;
+        } catch (error) {
+            return false;
+        }
+    }
+
 }
 
 
