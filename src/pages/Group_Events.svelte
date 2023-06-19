@@ -1,15 +1,25 @@
 <script>
     // This file will display all events found
     import {getContext, onMount} from "svelte";
-    import WelcomePage  from "../components/WelcomePage.svelte";
-
+    // check if user is logged in
+    import {LoggedIn} from "../services/stores.js";
+    import Sidebar from "../components/Sidebar.svelte";
     const geckoService = getContext("GeckoService");
 
-    const currentURL = window.location.href;
-    const id = currentURL.split("/").pop();
-
+    export let params = {}
     // WARNING: SOME IDE'S may throw an error with $: in Svelte. Ignore - this function is tested and valid.
     $: events = [];
+
+    // if params change
+    $: {
+        getEvents()
+    }
+
+    function getEvents() {
+        geckoService.getEvents().then(data => {
+            events = data;
+        });
+    }
 
     // on Mount get all events
     onMount(async () => {
@@ -17,7 +27,9 @@
         console.log(events);
     });
 
-    // eliminate all events in list, that have already happened
+    // on change of currentURL
+
+
 
     $: events = events.filter(event => {
         let eventTime = new Date(event.time);
@@ -33,16 +45,6 @@
         return event;
     });
 
-    // delete all events in events list, that are not within group id
-    $: events = events.filter(event => {
-        return event.group_id == id;
-    });
-
-
-    // check if user is logged in
-    import {LoggedIn} from "../services/stores.js";
-    import Sidebar from "../components/Sidebar.svelte";
-    import Dashboard from "../components/Dashboard.svelte";
 
     let stat;
     LoggedIn.subscribe(value => {
@@ -59,11 +61,13 @@
 
         <div id="EventContainer" class="has-content-centered">
             <div class="desc">
-                Welcome to group {id}
+                Welcome to group {params.id}
                 <br>
                 Following events are upcoming within this group:
             </div>
             {#each events as event}
+                <!-- if event.id == params.id -->
+                {#if event.group_id == params.id}
                 <div class="card has-background-primary-light">
                     <div class="card-content">
                         <div class="main-content">
@@ -76,6 +80,7 @@
 
                     </div>
                 </div>
+                {/if}
             {/each}
 
         </div>

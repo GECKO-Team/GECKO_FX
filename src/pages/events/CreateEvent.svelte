@@ -3,6 +3,7 @@
     import Sidebar from "../../components/Sidebar.svelte";
     import AddEvent from "../../components/events/CreateEvent.svelte";
     import {getContext} from "svelte";
+    import {push} from "svelte-spa-router";
 
     const geckoService = getContext("GeckoService");
 
@@ -19,6 +20,7 @@
         if (post_event_response.status === 200) {
             // add the event to the array
             events.push(eventToCreate);
+            push("/events")
         }
     };
 

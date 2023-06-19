@@ -49,7 +49,7 @@
             <!-- for all items in groups, create a link to the group -->
             <ul class="menu-list">
                 {#each groups as group}
-                    <li><a href="#/group/{group.id}">{group.name}</a></li>
+                    <li><a target="_self" href="#/group/{group.id}">{group.name}</a></li>
                 {/each}
             </ul>
         {/if}
