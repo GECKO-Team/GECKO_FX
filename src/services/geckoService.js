@@ -164,6 +164,27 @@ export class geckoService {
         }
     }
 
+    async createGroup(username, name, description) {
+        try {
+            let group = {
+                username: username,
+                name: name,
+                description: description
+            }
+            console.log(group);
+            const response = await axios.post(`${this.baseUrl}/api/createGroup`, group);
+            if (response.status === 200) { // response - object, eg { status: 200, message: 'OK' }
+                console.log('Success createEvent');
+                return true;
+            }
+        }
+        catch (error) {
+            console.log("Error during createEvent!");
+            console.error(error);
+            return false;
+        }
+    }
+
 
     async deleteEvent(event_id_to_delete) {
         try {
@@ -261,6 +282,18 @@ export class geckoService {
             return false;
         }
     }
+
+    async getAllGroups() {
+        try {
+            // ping /api/groups and get all groups
+            let response = await axios.get(`${this.baseUrl}/api/groups`);
+            console.log(response)
+            return response.data;
+        } catch (error) {
+            return false;
+        }
+    }
+
 }
 
 

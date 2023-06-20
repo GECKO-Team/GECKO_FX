@@ -87,7 +87,7 @@
                     {/if}
                     {#if stat}
                         <div id="welcome" class="tag is-light">
-                            <p><i class="fa fa-hand-peace-o" aria-hidden="true"></i> Hallo {username}</p>
+                            <p><i class="fa fa-hand-peace-o" aria-hidden="true"></i> Hello {username}</p>
                         </div>
 
                         <div>

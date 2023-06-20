@@ -1,7 +1,18 @@
 <script>
-    import { createEventDispatcher } from "svelte";
+    import {createEventDispatcher, onMount} from "svelte";
     const dispatch =  createEventDispatcher();
     import {UserName} from "../../services/stores.js";
+    import {getContext} from "svelte";
+
+    const geckoService = getContext("GeckoService");
+
+    $: available_groups = [];
+
+    // on mount get all groups
+    onMount(async () => {
+        available_groups = await geckoService.getAllGroups();
+    });
+
 
     let event = {
         city: '',
@@ -19,7 +30,7 @@
     let username = "";
     UserName.subscribe(value => {
         username = value;
-        alert(username)
+        // alert(username)
     });
 
     const onSubmit = (e) => {
@@ -68,6 +79,12 @@
 
 <!--       TODO: house number should be probably a number not a string-->
         <input type="text" placeholder="house_nr" bind:value={event.house_nr}/>
+        <label class="" >Group:</label>
+        <select bind:value={event.group_id}>
+            {#each available_groups as group}
+                <option value={group.id}>{group.name}</option>
+            {/each}
+        </select>
 
         <label class="" >Time:</label>
         <br>

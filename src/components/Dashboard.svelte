@@ -1,6 +1,7 @@
 <script>
     // This file will display all events found
     import {getContext, onMount} from "svelte";
+    import WelcomePage  from "../components/WelcomePage.svelte";
 
     const geckoService = getContext("GeckoService");
 
@@ -29,10 +30,19 @@
         return event;
     });
 
+    // check if user is logged in
+    import {LoggedIn} from "../services/stores.js";
+
+    let stat;
+    LoggedIn.subscribe(value => {
+        stat = value;
+    });
 
 </script>
 
 <div id="EventContainer" class="has-content-centered">
+
+
     <div class="desc">
         Following events are upcoming:
     </div>

@@ -12,6 +12,8 @@
     let showDescription = false;
     const toggleShowDescription = () => (showDescription = !showDescription);
 
+    $: time = new Date(time).toLocaleString();
+
     function onEdit() {
         location.href = `#/events/${id}`;
     }
@@ -22,7 +24,7 @@
 </style>
 
 <div class="card event-card event-details-card">
-    <button class="btn" on:click={onEdit}>Edit event</button>
+    <!-- <button class="btn" on:click={onEdit}>Edit event</button> -->
 
     <h1>
         {title}
